@@ -7,6 +7,7 @@ import java.sql.*;
  */
 public class DatabaseHelper {
     private static DatabaseHelper instance = new DatabaseHelper();
+    private PropertyLoader props = PropertyLoader.getInstance();
 
     public DatabaseHelper() {
     }
@@ -15,10 +16,10 @@ public class DatabaseHelper {
         return instance;
     }
 
-    private String[] tables = {"addresses", "clients", "loads", "orders"};
+    private String[] tables =props.getDataBaseTables(); //{"addresses", "clients", "loads", "orders"};
     private String deleteQueryTemplate = "DELETE FROM %s";
-    private String driverName = "org.sqlite.JDBC";
-    private String dbPath = "D:/Git/edu/DeliveryOrdersManager/db/development.sqlite3";
+    private String driverName = props.getDataBaseDriver();//"org.sqlite.JDBC";
+    private String dbPath = props.getDataBasePath(); //"D:/Git/edu/DeliveryOrdersManager/db/development.sqlite3";
     private String jdbc = "jdbc:sqlite";
     private String dbUrl = jdbc + ":" + dbPath;
     int timeout = 30;
