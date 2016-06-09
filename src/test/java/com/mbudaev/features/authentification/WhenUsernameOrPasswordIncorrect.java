@@ -2,6 +2,7 @@ package com.mbudaev.features.authentification;
 
 import com.mbudaev.domain.User;
 import com.mbudaev.features.BaseTest;
+import com.mbudaev.pages.LoginPage;
 import net.serenitybdd.junit.runners.SerenityParameterizedRunner;
 import net.thucydides.core.annotations.Title;
 import net.thucydides.junit.annotations.TestData;
@@ -43,7 +44,6 @@ public class WhenUsernameOrPasswordIncorrect extends BaseTest {
 
     @Before
     public void setUp() throws Exception {
-        systemSteps.cleanDB();
         userSteps.onLoginForm.open();
     }
 
@@ -51,7 +51,7 @@ public class WhenUsernameOrPasswordIncorrect extends BaseTest {
     @Title("Incorrect authentication test")
     public void invalidDriverLogin() {
         userSteps.onLoginForm.fill_field(user.getLogin(), user.getPassword()).submit();
-        userSteps.onLoginForm.failed_message_is_displayed();
+        pages.currentPageAt(LoginPage.class);
     }
 
 

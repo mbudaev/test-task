@@ -12,6 +12,7 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by Mikhail_Budaev on 08-Jun-16.
  */
+@DefaultUrl("/orders")
 @NamedUrls(
         {
                 @NamedUrl(name = "orders", url = "/orders"),
@@ -27,7 +28,14 @@ public class DispatcherPage extends PageObject {
     @FindBy(css = ".btn-success")
     private WebElement newOrderBtn;
 
+    @FindBy(xpath = "//input[@value='Upload']")
+    private WebElement uploadButton;
+
     public boolean newOrderBtnIsDisplayed() {
         return newOrderBtn.isDisplayed();
+    }
+
+    public void clickUploadButton() {
+        uploadButton.click();
     }
 }

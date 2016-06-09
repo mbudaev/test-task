@@ -34,4 +34,9 @@ public class DispatcherSteps extends ScenarioSteps {
     public void page_present_without_authentication() {
         assertThat(dispatcherPage.newOrderBtnIsDisplayed(), is(false));
     }
+
+    @Step("Click upload file button")
+    public void clickUploadFileButton() {
+        dispatcherPage.clickUploadButton();
+    }
 }
