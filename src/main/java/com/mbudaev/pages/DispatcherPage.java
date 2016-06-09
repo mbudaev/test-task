@@ -12,12 +12,13 @@ import org.openqa.selenium.WebElement;
 /**
  * Created by Mikhail_Budaev on 08-Jun-16.
  */
-@DefaultUrl("/orders")
 @NamedUrls(
         {
                 @NamedUrl(name = "orders", url = "/orders"),
-                @NamedUrl(name = "orders.date", url = "/orders?selected_date={1}")
-        })
+                @NamedUrl(name = "orders.by.date", url = "/orders?selected_date={1}")
+        }
+)
+@At("#HOST/orders*")
 public class DispatcherPage extends PageObject {
     public DispatcherPage(WebDriver driver) {
         super(driver);

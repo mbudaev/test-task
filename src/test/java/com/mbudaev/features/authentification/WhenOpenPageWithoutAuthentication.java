@@ -1,8 +1,8 @@
 package com.mbudaev.features.authentification;
 
 import com.mbudaev.features.BaseTest;
+import com.mbudaev.pages.ErrorPage;
 import net.serenitybdd.junit.runners.SerenityRunner;
-import net.thucydides.core.annotations.Pending;
 import net.thucydides.core.annotations.Title;
 import org.junit.Before;
 import org.junit.Test;
@@ -23,40 +23,37 @@ public class WhenOpenPageWithoutAuthentication extends BaseTest {
     @Title("Open dispatcher page without authentication")
     public void openDispatcherPage() {
         userSteps.onDispatcherPage.open();
-        userSteps.onDispatcherPage.page_present_without_authentication();
+        userSteps.onDispatcherPage.pages().currentPageAt(ErrorPage.class);
     }
 
     @Test
-    @Pending
-    @Title("Open dispatcher page without authentication")
+    @Title("Open order creation page without authentication")
     public void openOrderCreatePage() {
         userSteps.onOrderPage.openNewOrderPage();
-        userSteps.onOrderPage.displayed_button_create();
+        userSteps.onOrderPage.pages().currentPageAt(ErrorPage.class);
     }
 
     @Test
-//    @Pending
-    @Title("Open dispatcher page without authentication")
+    @Title("Open certain order page without authentication")
     public void openOrderEditPage() {
         userSteps.onOrderPage.openOrderPageNumber(781);
-        userSteps.onOrderPage.displayed_button_save();
+        userSteps.onOrderPage.pages().currentPageAt(ErrorPage.class);
     }
 
     @Test
-    @Pending
-    @Title("Open dispatcher page without authentication")
-    public void openRoutesManagerPage() {
-        userSteps.onRoutesManagerPage.open();
-//        userSteps.onRoutesManagerPage.page_present_without_authentification();
+    @Title("Open routing manager page without authentication")
+    public void openRoutingManagerPage() {
+        userSteps.onRoutingManagerPage.openLoadById(2);
+        userSteps.onRoutingManagerPage.pages().currentPageAt(ErrorPage.class);
     }
-//
-//    @Test
-//    @Pending
-//    @Title("Open dispatcher page without authentication")
-//    public void openDriverPage() {
-//        userSteps.onDriverPage.open();
-//        userSteps.onDriverPage.page_present_without_authentification();
-//    }
+
+    @Test
+    @Title("Open dispatcher page without authentication")
+    public void openDriverPage() {
+        userSteps.onLoadsSteps.open();
+        userSteps.onLoadsSteps.pages().currentPageAt(ErrorPage.class);
+
+    }
 }
 
 

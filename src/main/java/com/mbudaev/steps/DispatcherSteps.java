@@ -22,12 +22,12 @@ public class DispatcherSteps extends ScenarioSteps {
 
     @Step("Open Dispatcher page")
     public void open() {
-        dispatcherPage.open("orders",null);
+        dispatcherPage.open("orders", PageObject.withParameters(""));
     }
 
     @Step("Open order page for the date {0}")
     public void open(String date) {
-        dispatcherPage.open("orders", PageObject.withParameters(date));
+        dispatcherPage.open("orders.by.date", PageObject.withParameters(date));
     }
 
     @Step("Page not present without authentication")

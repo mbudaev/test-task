@@ -1,5 +1,6 @@
 package com.mbudaev.steps;
 
+import com.mbudaev.domain.User;
 import com.mbudaev.pages.LoginPage;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.StepGroup;
@@ -14,8 +15,10 @@ import static org.hamcrest.Matchers.is;
  * Created by Mikhail_Budaev on 07-Jun-16.
  */
 public class LoginFormSteps extends ScenarioSteps {
-    private static final String USERNAME = "dispatcher";
+    private static final String USERNAME_DISPATCHER = "dispatcher";
     private static final String PASSWORD = "123";
+    private static final String USERNAME_DRIVER1 = "driver1";
+    private static final String USERNAME_DRIVER2 = "driver2";
 
 
     public LoginFormSteps(Pages pages) {
@@ -49,6 +52,15 @@ public class LoginFormSteps extends ScenarioSteps {
 
     @StepGroup("Login as dispatcher")
     public void login_as_dispatcher() {
-        fill_field(USERNAME, PASSWORD).submit();
+        fill_field(USERNAME_DISPATCHER, PASSWORD).submit();
+    }
+
+    @StepGroup("Login as {0}")
+    public void login(User user)  {
+        fill_field(user.getLogin(), user.getPassword()).submit();
+    }
+    @StepGroup("Login as driver2")
+    public void login_as_driver2()  {
+        fill_field(USERNAME_DRIVER2, PASSWORD).submit();
     }
 }

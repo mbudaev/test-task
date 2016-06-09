@@ -15,10 +15,14 @@ import org.openqa.selenium.WebElement;
 
 @NamedUrls(
         {
-                @NamedUrl(name = "open.order", url = "/orders/{1}/edit"),
+                @NamedUrl(name = "openLoadById.order", url = "/orders/{1}/edit"),
                 @NamedUrl(name = "create.order", url = "/orders/new")
         }
 )
+@At(urls = {
+        "#HOST/orders/.*./edit",
+        "#HOST/orders/new"
+})
 public class OrderPage extends PageObject {
     public OrderPage(WebDriver driver) {
         super(driver);

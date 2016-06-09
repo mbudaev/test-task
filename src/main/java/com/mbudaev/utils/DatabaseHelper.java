@@ -16,10 +16,10 @@ public class DatabaseHelper {
         return instance;
     }
 
-    private String[] tables =props.getDataBaseTables(); //{"addresses", "clients", "loads", "orders"};
+    private String[] tables =props.getDataBaseTables();
     private String deleteQueryTemplate = "DELETE FROM %s";
-    private String driverName = props.getDataBaseDriver();//"org.sqlite.JDBC";
-    private String dbPath = props.getDataBasePath(); //"D:/Git/edu/DeliveryOrdersManager/db/development.sqlite3";
+    private String driverName = props.getDataBaseDriver();
+    private String dbPath = props.getDataBasePath();
     private String jdbc = "jdbc:sqlite";
     private String dbUrl = jdbc + ":" + dbPath;
     int timeout = 30;

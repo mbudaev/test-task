@@ -22,7 +22,11 @@ public class UserSteps extends ScenarioSteps {
     public LoginFormSteps onLoginForm;
 
     @Steps
-    public RoutesManagerSteps onRoutesManagerPage;
+    public RoutingManagerSteps onRoutingManagerPage;
+
+    @Steps
+    public LoadsSteps onLoadsSteps;
+
 
     public UserSteps(Pages pages) {
         super(pages);
