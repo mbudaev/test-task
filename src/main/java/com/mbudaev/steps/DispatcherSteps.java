@@ -6,6 +6,8 @@ import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
 
+import java.io.File;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -38,5 +40,10 @@ public class DispatcherSteps extends ScenarioSteps {
     @Step("Click upload file button")
     public void clickUploadFileButton() {
         dispatcherPage.clickUploadButton();
+    }
+
+    @Step("Choose file to upload")
+    public void chooseFileToUpload(File file) {
+        dispatcherPage.setFileToUpload(file);
     }
 }
