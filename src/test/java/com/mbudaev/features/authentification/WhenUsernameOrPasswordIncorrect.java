@@ -50,7 +50,7 @@ public class WhenUsernameOrPasswordIncorrect extends BaseTest {
     @Test
     @Title("Incorrect authentication test")
     public void invalidDriverLogin() {
-        userSteps.onLoginForm.fill_field(user.getLogin(), user.getPassword()).submit();
+        userSteps.onLoginForm.fillField(user.getLogin(), user.getPassword()).submit();
         pages.currentPageAt(LoginPage.class);
     }
 

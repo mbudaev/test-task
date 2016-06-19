@@ -28,7 +28,7 @@ public class LoginFormSteps extends ScenarioSteps {
     LoginPage loginPage;
 
     @StepGroup("Given username {0} and password {1}")
-    public LoginFormSteps fill_field(String username, String password) {
+    public LoginFormSteps fillField(String username, String password) {
         loginPage.fillUsername(username);
         loginPage.fillPassword(password);
         return this;
@@ -46,21 +46,21 @@ public class LoginFormSteps extends ScenarioSteps {
     }
 
     @Step("Assert authentification result")
-    public void failed_message_is_displayed() {
+    public void failedMessageIsDisplayed() {
         assertThat(loginPage.failTextIsPresent(), is(true));
     }
 
     @StepGroup("Login as dispatcher")
-    public void login_as_dispatcher() {
-        fill_field(USERNAME_DISPATCHER, PASSWORD).submit();
+    public void loginAsDispatcher() {
+        fillField(USERNAME_DISPATCHER, PASSWORD).submit();
     }
 
     @StepGroup("Login as {0}")
     public void login(User user)  {
-        fill_field(user.getLogin(), user.getPassword()).submit();
+        fillField(user.getLogin(), user.getPassword()).submit();
     }
     @StepGroup("Login as driver2")
-    public void login_as_driver2()  {
-        fill_field(USERNAME_DRIVER2, PASSWORD).submit();
+    public void loginAsDriver2()  {
+        fillField(USERNAME_DRIVER2, PASSWORD).submit();
     }
 }

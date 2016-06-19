@@ -20,7 +20,7 @@ public class HeaderSteps extends ScenarioSteps {
     HeaderElement headerElement;
 
     @Step("Check authentification name is {0}")
-    public void login_name_is_equals(String login) {
+    public void loginNameIsEquals(String login) {
         assertThat(headerElement.getCurrentLogin(), containsString(login));
     }
 

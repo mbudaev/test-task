@@ -46,4 +46,14 @@ public class DispatcherSteps extends ScenarioSteps {
     public void chooseFileToUpload(File file) {
         dispatcherPage.setFileToUpload(file);
     }
+
+    @Step("Click button new order")
+    public void clickButtonNewOrder() {
+        dispatcherPage.clickButtonNewOrder();
+    }
+
+    @Step("Wait until file upload")
+    public void waitUploading() {
+        dispatcherPage.waitOrdersDateTitle();
+    }
 }

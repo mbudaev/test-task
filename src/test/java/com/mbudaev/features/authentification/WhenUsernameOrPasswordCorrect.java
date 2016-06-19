@@ -42,8 +42,8 @@ public class WhenUsernameOrPasswordCorrect extends BaseTest {
     @Test
     @Title("Correct authentication test")
     public void invalidDriverLogin() {
-        userSteps.onLoginForm.fill_field(user.getLogin(), user.getPassword()).submit();
-        userSteps.onPageHeader.login_name_is_equals(user.getLogin());
+        userSteps.onLoginForm.fillField(user.getLogin(), user.getPassword()).submit();
+        userSteps.onPageHeader.loginNameIsEquals(user.getLogin());
     }
 
 }
