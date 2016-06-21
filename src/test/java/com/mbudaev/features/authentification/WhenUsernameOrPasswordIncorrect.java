@@ -26,16 +26,12 @@ public class WhenUsernameOrPasswordIncorrect extends BaseTest {
     public static Collection<Object[]> testData() {
         return Arrays.asList(new Object[][]{
                 {new User("Vasya", "")},
+                {new User("", "")},
                 {new User("", "123")},
-                {new User("Vasya", "123")},
-                {new User("123", "zfdsg")},
                 {new User("driver1", "")},
-                {new User("driver1", "111")},
                 {new User("", "123")},
                 {new User("driver2", "")},
-                {new User("driver2", "122")},
                 {new User("dispatcher", "")},
-                {new User("dispatcher", "111")},
                 {new User("dispatcher", "asdgf")}
         });
     }

@@ -1,0 +1,6 @@
+1. Указать в application.property путь до БД в database.path переменную.
+2. Для запуска требуется Java 8 и maven 3 Firefox v.46
+3. Перед запуском тестов приложение должно быть запусщено
+3.1 Если прилождение доступно по url отличному от http://127.0.0.1:3000/ то в serenity.properties изменить webdriver.base.url на актуальный.
+4. Запускать командой: mvn clean integration-test serenity:aggregate
+5. По результату выполнения сценариев будет сформирован графический отчет по пути: \target\site\serenity\index.html
