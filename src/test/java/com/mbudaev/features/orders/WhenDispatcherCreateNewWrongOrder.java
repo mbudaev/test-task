@@ -8,6 +8,7 @@ import com.mbudaev.domain.Client;
 import com.mbudaev.domain.Order;
 import com.mbudaev.features.BaseTest;
 import net.serenitybdd.junit.runners.SerenityRunner;
+import net.thucydides.core.annotations.Title;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -31,26 +32,30 @@ public class WhenDispatcherCreateNewWrongOrder extends BaseTest {
             .build();
     private Order order = new OrderBuilder()
             .setDeliveryDate("")
-            .setDeliveryShift("")
+            .setDeliveryShift("E")
             .setorderNumber(1)
-            .setOrderType("")
+            .setOrderType("Return")
             .setVolume(10.2)
             .setUnitsQuntity("")
             .setUnitsType("")
             .setDeliveryMode("")
             .setDestinationAddress(address)
             .setClientInfo(client).build();
+    private String alertMessage = "City couldn't be blank";
 
     @Before
     public void setUp() throws Exception {
         systemSteps.cleanDB();
+        userSteps.onLoginForm.open();
         userSteps.onLoginForm.loginAsDispatcher();
         userSteps.onDispatcherPage.clickButtonNewOrder();
     }
 
     @Test
+    @Title("Check the message alert when dispatcher has entered wrong values")
     public void dispatcherCreateWrongOrder() {
         userSteps.onOrderPage.fillOrderForm(order);
-
+        userSteps.onOrderPage.clickCreateOrder();
+        userSteps.onOrderPage.alertIsDisplayed(alertMessage);
     }
 }
